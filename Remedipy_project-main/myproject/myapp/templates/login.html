@@ -1,0 +1,25 @@
+<!-- login.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra-styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="login">
+    <div class="form">
+        <h3>User Login</h3>
+        <form>
+            <input type="text" placeholder="username" />
+            <input type="password" placeholder="password" />
+            <button><a href="{% url 'index' %}">Login</a></button>
+            <p class="alternate"><a href= "{% url 'register' %}">Register</a></p>
+        </form>
+    </div>
+</div>
+<script src="{% static 'Javascript/jquery-3.6.4.min.js' %}"></script>
+<script src="{% static 'JavaScript/script.js' %}"></script>
+{% endblock %}

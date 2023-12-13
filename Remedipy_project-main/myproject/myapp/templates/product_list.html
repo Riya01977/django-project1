@@ -1,0 +1,29 @@
+<!-- login.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra-styles %}
+<link rel="stylesheet" href="{% static 'css/__style.css' %}" />
+{% endblock %}
+
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Product List</h1>
+
+    <ul>
+        {% for category in categories %}
+        <li>{{ category.name }}
+            <ul>
+                {% for product in category.product_set.all %}
+                    <li><a href="{% url 'product_details' product.id%}">{{ product.name }}</a>
+                    <button type="submit"><a href="{% url 'cart' %}">Add to Cart</a></button></li>
+                {% endfor %}
+<!--                product.id-->
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
